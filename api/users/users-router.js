@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express().Router();
 
-const User = require('./users-model');
+const Users = require('./users-model');
 
 router.get('/', (req, res) => {
-  User.getAll()
+  Users.getAll()
     .then((users) => {
       res.status(200).json(users);
     })
@@ -18,7 +18,7 @@ router.get('/users/id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  User.insert(req.body)
+  Users.insert(req.body)
     .then((user) => {
       res.status(200).json(user);
     })
