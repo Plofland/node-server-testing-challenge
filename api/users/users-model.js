@@ -13,7 +13,7 @@ function getAll() {
 }
 
 function getById(id) {
-  return null;
+  return db('users').where('id', id).first();
 }
 
 async function insert(user) {
@@ -26,5 +26,10 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return null;
+  return db('users')
+    .where('id', id)
+    .del()
+    .then(() => {
+      return db('users');
+    });
 }
