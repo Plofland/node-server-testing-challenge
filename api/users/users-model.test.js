@@ -24,6 +24,7 @@ afterAll(async () => {
 });
 
 describe('Users model', () => {
+  //check that we are able to insert a user to the DB and then check if the user is getting the proper info
   describe('insert function', () => {
     it('add a user to the DB', async () => {
       let all;
@@ -41,5 +42,27 @@ describe('Users model', () => {
     });
   });
 
+  //check that we are able to update a user and then check if the user data is actually updating
+  describe('update function', () => {
+    it('updates the user', async () => {
+      const [id] = await db('users').insert(adam);
+      await Users.update(id, { name: 'Atom' });
+      const updated = await db('users')
+        .where({ id })
+        .first();
+      expect(updated.name).toBe('Atom');
+    });
 
+    it('checks the updated user', async () => {
+      const [id] = await db('users').insert(adam);
+      await Users.update(id, { name: 'Atom' });
+      const updated = await db('users')
+        .where({ id })
+        .first();
+      expect(updated).toMatchObject({
+        id: 1,
+        name: 'Atom'
+      });
+    });
+  });
 });

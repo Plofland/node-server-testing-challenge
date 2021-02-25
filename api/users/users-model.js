@@ -22,7 +22,7 @@ async function insert(user) {
 }
 
 async function update(id, changes) {
-  return null;
+  return db('users').update(changes).where({ id });
 }
 
 function remove(id) {
