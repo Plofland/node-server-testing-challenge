@@ -65,4 +65,18 @@ describe('Users model', () => {
       });
     });
   });
+
+  describe('remove function', () => {
+    it('remove a user from the DB', async () => {
+      let all;
+      await Users.insert(adam);
+      all = await db('users');
+      expect(all).toHaveLength(1);
+
+      const id = all[0].id;
+      await Users.remove(id);
+      console.log(all);
+      expect(all).toHaveLength(0);
+    });
+  });
 });

@@ -33,7 +33,7 @@ router.delete('/:id', (req, res) => {
   Users.remove(id)
     .then((deleted) => {
       if (deleted) {
-        res.json({ removed: deleted });
+        res.json({ message: 'User successfully removed' });
       } else {
         res.status(404).json({
           message: 'Could not find user with given id'
