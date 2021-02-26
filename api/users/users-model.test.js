@@ -75,7 +75,7 @@ describe('Users model', () => {
 
       const id = all[0].id;
       await Users.remove(id);
-      console.log(all);
+      all = await db('users');
       expect(all).toHaveLength(0);
     });
   });

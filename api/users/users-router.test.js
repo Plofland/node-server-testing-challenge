@@ -79,17 +79,5 @@ describe('users-router', () => {
     });
   });
 
-  // describe('[DELETE] /users', () => {
-  //   it('delete a user from the DB', async () => {
-  //     let res;
-  //     await db('users').insert(adam);
-  //     // res = await request(server)
-  //     //   .post('/api/users')
-  //     //   .send(adam);
-  //     // expect(res.body).toMatchObject({ id: 1, ...adam });
-  //     res = await request('/users')
-      
 
-  //   })
-  // })
 });

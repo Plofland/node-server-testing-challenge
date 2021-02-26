@@ -26,10 +26,8 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-  return db('users')
-    .where('id', id)
-    .del()
-    .then(() => {
-      return db('users');
-    });
+  return db('users').where('id', id).del()
+  .then(() => {
+    return db('users');
+  });
 }
